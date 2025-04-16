@@ -42,7 +42,7 @@ class UserListViewModel
             _searchQuery
                 .debounce(DEBOUNCE_TIMEOUT)
                 .collectLatest { query ->
-                    if (query.isBlank()) {
+                    if (query.isBlank() || query.length < 2) {
                         _uiState.value = UserListUiState.Idle
                     } else {
                         searchUsersFlow(query)
@@ -61,9 +61,8 @@ class UserListViewModel
     }
 
     fun onSearchQueryChanged(query: String) {
-        if (query.length > 2) {
-            _searchQuery.value = query
-        }
+
+        _searchQuery.value = query
     }
 
     private fun searchUsersFlow(query: String): Flow<List<GitHubUserBrief>> = flow {

@@ -1,11 +1,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/userDetailsLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageAvatar"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -13,7 +14,8 @@
         android:contentDescription="User avatar"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textUsername"
@@ -25,19 +27,21 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/imageAvatar"
-        app:layout_constraintTop_toTopOf="@id/imageAvatar" />
+        app:layout_constraintTop_toTopOf="@id/imageAvatar"
+        tools:text="@tools:sample/full_names" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textFullName"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:layout_height="wrap_content"
         android:textColor="?android:textColorSecondary"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/textUsername"
-        app:layout_constraintTop_toBottomOf="@id/textUsername" />
+        app:layout_constraintTop_toBottomOf="@id/textUsername"
+        tools:text="@tools:sample/full_names" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textFollowers"
@@ -63,8 +67,31 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingTop="12dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textFollowers" />
+        app:layout_constraintTop_toBottomOf="@id/textFollowers"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_repo" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/errorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

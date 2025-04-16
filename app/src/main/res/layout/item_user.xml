@@ -13,7 +13,7 @@
         android:minHeight="72dp"
         android:padding="16dp">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageAvatar"
             android:layout_width="56dp"
             android:layout_height="56dp"
@@ -22,9 +22,10 @@
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textUsername"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -35,6 +36,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageAvatar"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@android:string/yes" />
+            tools:text="@tools:sample/full_names" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

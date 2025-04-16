@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.github_moneyforward_ex.data.model.Repo
 import com.example.github_moneyforward_ex.databinding.ItemRepoBinding
 
-class RepoAdapter(private val repos: List<Repo>) :
+class RepoAdapter(private val repos: MutableList<Repo>) :
     RecyclerView.Adapter<RepoAdapter.RepoViewHolder>() {
 
     inner class RepoViewHolder(private val binding: ItemRepoBinding) :
@@ -35,5 +35,11 @@ class RepoAdapter(private val repos: List<Repo>) :
 
     override fun onBindViewHolder(holder: RepoViewHolder, position: Int) {
         holder.bind(repos[position])
+    }
+
+    fun updateRepos(repos: List<Repo>) {
+        this.repos.clear()
+        this.repos.addAll(repos)
+        notifyDataSetChanged()
     }
 }
