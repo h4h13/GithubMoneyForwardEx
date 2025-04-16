@@ -1,0 +1,70 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/userDetailsLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imageAvatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="User avatar"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textUsername"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageAvatar"
+        app:layout_constraintTop_toTopOf="@id/imageAvatar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textFullName"
+        android:layout_width="0dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_height="wrap_content"
+        android:textColor="?android:textColorSecondary"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/textUsername"
+        app:layout_constraintTop_toBottomOf="@id/textUsername" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textFollowers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Followers: 0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageAvatar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textFollowing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Following: 0"
+        app:layout_constraintStart_toEndOf="@id/textFollowers"
+        app:layout_constraintTop_toTopOf="@id/textFollowers" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerRepos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textFollowers" />
+</androidx.constraintlayout.widget.ConstraintLayout>
